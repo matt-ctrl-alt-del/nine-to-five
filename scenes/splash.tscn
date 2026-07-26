@@ -260,3 +260,4 @@ autoplay = "default"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1208322454]
 stream = ExtResource("1_86pdq")
+autoplay = true

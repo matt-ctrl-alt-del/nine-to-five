@@ -14,9 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://d4iiqn5ws5i4r" path="res://scenes/bodyguard_1.tscn" id="12_kvuet"]
 [ext_resource type="PackedScene" uid="uid://druxsdcfsjmb1" path="res://scenes/bodyguard_2.tscn" id="13_trtic"]
 [ext_resource type="PackedScene" uid="uid://c0hxhrsvtl3yv" path="res://scenes/tracker.tscn" id="14_trtic"]
-[ext_resource type="Script" uid="uid://ce1sraurj33uw" path="res://scripts/sub_viewport.gd" id="15_rysoc"]
-[ext_resource type="Texture2D" uid="uid://cngb7e8iugj15" path="res://sprites/map/Screenshot 2026-07-26 054715.png" id="16_ssvqc"]
-[ext_resource type="Texture2D" uid="uid://db4eo7w4fm1hg" path="res://sprites/player/playerbox2.png" id="17_264po"]
 
 [sub_resource type="Gradient" id="Gradient_kvuet"]
 offsets = PackedFloat32Array(0.1610577, 0.5793269, 0.8004808)
@@ -45,7 +42,6 @@ script = ExtResource("1_vtaks")
 [node name="map" parent="." unique_id=1229493521 instance=ExtResource("2_kvpfn")]
 
 [node name="player" parent="." unique_id=691773406 groups=["player"] instance=ExtResource("3_dinhu")]
-modulate = Color(0.5641601, 0.56416, 0.56416, 1)
 position = Vector2(39, 599)
 collision_layer = 2
 collision_mask = 0
@@ -59,9 +55,7 @@ texture = SubResource("GradientTexture2D_mbl1c")
 texture_scale = 3.18
 
 [node name="Exit" type="Area2D" parent="." unique_id=1194116823]
-position = Vector2(1144, 25)
-collision_layer = 7
-collision_mask = 7
+position = Vector2(1145, 25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=1022268304]
 position = Vector2(-0.5, -1)
@@ -70,9 +64,7 @@ shape = SubResource("RectangleShape2D_mbl1c")
 [node name="Items" type="Node" parent="." unique_id=301681298]
 
 [node name="Biscuit" type="Area2D" parent="Items" unique_id=295731117]
-position = Vector2(1108, 393)
-collision_layer = 7
-collision_mask = 7
+position = Vector2(280, 88)
 
 [node name="Sprite2D" type="Sprite2D" parent="Items/Biscuit" unique_id=1338244923]
 texture = ExtResource("7_ca42v")
@@ -81,9 +73,7 @@ texture = ExtResource("7_ca42v")
 shape = SubResource("CircleShape2D_cbbp8")
 
 [node name="Bag" type="Area2D" parent="Items" unique_id=897889355]
-position = Vector2(760, 104)
-collision_layer = 7
-collision_mask = 7
+position = Vector2(1127, 377)
 
 [node name="Sprite2D" type="Sprite2D" parent="Items/Bag" unique_id=1819608081]
 texture = ExtResource("8_rysoc")
@@ -92,9 +82,7 @@ texture = ExtResource("8_rysoc")
 shape = SubResource("CircleShape2D_guojw")
 
 [node name="Key" type="Area2D" parent="Items" unique_id=962984055]
-position = Vector2(280, 104)
-collision_layer = 7
-collision_mask = 7
+position = Vector2(792, 73)
 
 [node name="Sprite2D" type="Sprite2D" parent="Items/Key" unique_id=2099671220]
 texture = ExtResource("9_ssvqc")
@@ -107,17 +95,17 @@ stream = ExtResource("2_iywne")
 autoplay = true
 
 [node name="bodyguard1" parent="." unique_id=1854896282 instance=ExtResource("12_kvuet")]
-position = Vector2(722, 34)
+position = Vector2(153, 553)
 collision_layer = 4
 collision_mask = 0
 
 [node name="bodyguard2" parent="." unique_id=1431428803 instance=ExtResource("13_trtic")]
-position = Vector2(933, 288)
+position = Vector2(182, 524)
 collision_layer = 4
 collision_mask = 0
 
 [node name="bodyguard3" parent="." unique_id=1545585450 instance=ExtResource("11_dinhu")]
-position = Vector2(357, 346)
+position = Vector2(176, 574)
 collision_layer = 4
 collision_mask = 0
 
@@ -143,52 +131,11 @@ offset_right = 163.0
 offset_bottom = 130.0
 text = "Items Collected: 0"
 
-[node name="GameTimer" type="Timer" parent="CanvasLayer" unique_id=624770199]
-wait_time = 300.0
-one_shot = true
-autostart = true
-
-[node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=94357131]
-offset_left = 537.0
-offset_top = 81.0
-offset_right = 577.0
-offset_bottom = 104.0
-
-[node name="RealClockLabel" type="Label" parent="CanvasLayer" unique_id=1350590320]
-offset_left = 523.0
-offset_top = 81.0
-offset_right = 563.0
-offset_bottom = 104.0
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=604250000]
-offset_left = 1028.0
-offset_top = 25.0
-offset_right = 1128.0
-offset_bottom = 125.0
-
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=1245783428]
-handle_input_locally = false
-size = Vector2i(100, 100)
-render_target_update_mode = 4
-script = ExtResource("15_rysoc")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1805387618]
-visible = false
-texture = ExtResource("16_ssvqc")
-
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1154681424]
-zoom = Vector2(0.45, 0.45)
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SubViewportContainer" unique_id=41403832]
-position = Vector2(50, 50)
-texture = ExtResource("17_264po")
-
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1188649252]
+visible = false
 z_index = 1
 color = Color(0, 0, 0, 1)
 
-[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
-[connection signal="body_entered" from="Items/Biscuit" to="." method="_on_biscuit_body_entered"]
-[connection signal="body_entered" from="Items/Bag" to="." method="_on_bag_body_entered"]
-[connection signal="body_entered" from="Items/Key" to="." method="_on_key_body_entered"]
-[connection signal="timeout" from="CanvasLayer/GameTimer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Items/Biscuit" to="." method="_on_biscuit_area_entered"]
+[connection signal="area_entered" from="Items/Bag" to="." method="_on_bag_area_entered"]
+[connection signal="area_entered" from="Items/Key" to="." method="_on_key_area_entered"]

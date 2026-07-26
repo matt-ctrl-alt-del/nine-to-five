@@ -7,7 +7,7 @@
 size = Vector2(12, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbl1c"]
-size = Vector2(10, 10)
+size = Vector2(6, 6)
 
 [node name="boss" type="CharacterBody2D" unique_id=691773406]
 script = ExtResource("1_neq0i")

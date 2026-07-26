@@ -66,6 +66,30 @@ offset_bottom = -21.0
 texture_normal = ExtResource("5_70i5f")
 texture_pressed = ExtResource("6_mj5lg")
 
+[node name="Label" type="Label" parent="Control" unique_id=1016119872]
+layout_mode = 0
+offset_left = -549.0
+offset_top = -196.0
+offset_right = 1250.0
+offset_bottom = -69.0
+text = "Things have been weird in your reccent work lately. 
+Your co-workers were grumpy and more agrressive 
+than before. In an attempt to maintain your peace
+you decided to resign and today was your last day 
+as the company's employee."
+
+[node name="Label2" type="Label" parent="Control" unique_id=1635634262]
+layout_mode = 0
+offset_left = -1247.0
+offset_top = 66.0
+offset_right = 552.0
+offset_bottom = 193.0
+text = "It's 4:55:00PM. Five minutes left before you clock out. 
+Collect your things, your bag, your favorite cookie, 
+and the exit key. Survive, as your co-workers 
+desperately try to catch you."
+horizontal_alignment = 2
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1913131982]
 
 [node name="fade_transition" parent="CanvasLayer" unique_id=2118107434 instance=ExtResource("7_ufwb2")]

@@ -4,6 +4,10 @@ const tile_size: Vector2 = Vector2(16, 16)
 var enemy_tween: Tween
 var player: CharacterBody2D = null
 
+@export var move_duration: float = 3.0
+@export var step_delay: float = 3.0 
+var is_waiting: bool = false
+
 func _ready() -> void:
 	global_position.x = (floor(global_position.x / 16.0) * 16.0) + 8.0
 	global_position.y = (floor(global_position.y / 16.0) * 16.0) + 8.0

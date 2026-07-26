@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c0hxhrsvtl3yv"]
+
+[ext_resource type="Texture2D" uid="uid://rjxx40ukaqdi" path="res://sprites/items/bag.png" id="1_ocy8l"]
+[ext_resource type="Texture2D" uid="uid://dkwjn1axpop2" path="res://sprites/items/biscuit.png" id="2_dcoxp"]
+[ext_resource type="Texture2D" uid="uid://bp1k7ftq5l3qv" path="res://sprites/items/key.png" id="3_2oy2a"]
+
+[node name="Tracker" type="Control" unique_id=117869184]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(20, 30)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1833558455]
+layout_mode = 1
+offset_right = 286.0
+offset_bottom = 64.0
+
+[node name="Bag" type="TextureRect" parent="HBoxContainer" unique_id=1218899721]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_ocy8l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Biscuit" type="TextureRect" parent="HBoxContainer" unique_id=1659804915]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_dcoxp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Key" type="TextureRect" parent="HBoxContainer" unique_id=665177349]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_2oy2a")
+expand_mode = 1
+stretch_mode = 4
