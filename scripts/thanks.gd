@@ -6,9 +6,11 @@ func _ready() -> void:
 	$CanvasLayer/fade_transition/AnimationPlayer.play("fade_out")
 	await $CanvasLayer/fade_transition/AnimationPlayer.animation_finished
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
 
 
 func _on_play_pressed() -> void:

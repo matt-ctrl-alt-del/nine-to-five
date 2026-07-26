@@ -1,20 +1,126 @@
 [gd_scene format=3 uid="uid://dwr2w05pxq86m"]
 
-[ext_resource type="Script" uid="uid://bi8hbfeh6fnkm" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://bi8hbfeh6fnkm" path="res://scripts/game.gd" id="1_vtaks"]
 [ext_resource type="AudioStream" uid="uid://dqs4q4dkpw5c1" path="res://music/Project_1.mp3" id="2_iywne"]
-[ext_resource type="AudioStream" uid="uid://dfow1pvxljajk" path="res://music/Project_2.mp3" id="3_p57ef"]
-[ext_resource type="AudioStream" uid="uid://dv4t6ih7bufin" path="res://music/Project_3.mp3" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://brrb47xrysvq4" path="res://scenes/map.tscn" id="2_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://cacw4i7slvbyh" path="res://scenes/player.tscn" id="3_dinhu"]
+[ext_resource type="PackedScene" uid="uid://diht7apmk8qnx" path="res://scenes/fade_transition.tscn" id="4_kvuet"]
+[ext_resource type="Texture2D" uid="uid://bbysobc1ux5c4" path="res://sprites/progressbar/main_foreground.png" id="5_trtic"]
+[ext_resource type="Texture2D" uid="uid://ch0qoo1gfcdm6" path="res://sprites/progressbar/progress_background.png" id="6_ir15t"]
+[ext_resource type="Texture2D" uid="uid://dkwjn1axpop2" path="res://sprites/items/biscuit.png" id="7_ca42v"]
+[ext_resource type="Texture2D" uid="uid://rjxx40ukaqdi" path="res://sprites/items/bag.png" id="8_rysoc"]
+[ext_resource type="Texture2D" uid="uid://bp1k7ftq5l3qv" path="res://sprites/items/key.png" id="9_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://den7q63k2pxh4" path="res://scenes/boss.tscn" id="11_dinhu"]
+[ext_resource type="PackedScene" uid="uid://d4iiqn5ws5i4r" path="res://scenes/bodyguard_1.tscn" id="12_kvuet"]
+[ext_resource type="PackedScene" uid="uid://druxsdcfsjmb1" path="res://scenes/bodyguard_2.tscn" id="13_trtic"]
 
-[node name="Node2D" type="Node2D" unique_id=1425413442]
-script = ExtResource("1_lbhrr")
+[sub_resource type="Gradient" id="Gradient_kvuet"]
+offsets = PackedFloat32Array(0.1610577, 0.5793269, 0.8004808)
+colors = PackedColorArray(1, 1, 1, 1, 0.050314486, 0.050314486, 0.050314486, 1, 0, 0, 0, 1)
 
-[node name="Audio" type="Node" parent="." unique_id=1913016980]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mbl1c"]
+gradient = SubResource("Gradient_kvuet")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=37418273]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbl1c"]
+size = Vector2(11, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbbp8"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_guojw"]
+radius = 7.28011
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbl1c"]
+radius = 7.0
+
+[node name="Game" type="Node2D" unique_id=1425413442]
+script = ExtResource("1_vtaks")
+
+[node name="map" parent="." unique_id=1229493521 instance=ExtResource("2_kvpfn")]
+
+[node name="player" parent="." unique_id=691773406 groups=["player"] instance=ExtResource("3_dinhu")]
+position = Vector2(39, 599)
+collision_layer = 2
+collision_mask = 0
+
+[node name="PointLight2D" type="PointLight2D" parent="player" unique_id=806342334]
+range_layer_min = -1000
+range_layer_max = 1000
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_mbl1c")
+texture_scale = 2.25
+
+[node name="Exit" type="Area2D" parent="." unique_id=1194116823]
+position = Vector2(1145, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=1022268304]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_mbl1c")
+
+[node name="Node" type="Node" parent="." unique_id=301681298]
+
+[node name="Biscuit" type="Area2D" parent="Node" unique_id=295731117]
+position = Vector2(280, 88)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/Biscuit" unique_id=1338244923]
+texture = ExtResource("7_ca42v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Biscuit" unique_id=543348283]
+shape = SubResource("CircleShape2D_cbbp8")
+
+[node name="Bag" type="Area2D" parent="Node" unique_id=897889355]
+position = Vector2(1127, 377)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/Bag" unique_id=1819608081]
+texture = ExtResource("8_rysoc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Bag" unique_id=952955817]
+shape = SubResource("CircleShape2D_guojw")
+
+[node name="Key" type="Area2D" parent="Node" unique_id=962984055]
+position = Vector2(792, 73)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/Key" unique_id=2099671220]
+texture = ExtResource("9_ssvqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Key" unique_id=1854312972]
+shape = SubResource("CircleShape2D_mbl1c")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=404687800]
 stream = ExtResource("2_iywne")
+autoplay = true
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Audio" unique_id=667935104]
-stream = ExtResource("3_p57ef")
+[node name="bodyguard1" parent="." unique_id=1854896282 instance=ExtResource("12_kvuet")]
+position = Vector2(153, 553)
+collision_layer = 4
+collision_mask = 0
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Audio" unique_id=1483907637]
-stream = ExtResource("4_u5sy4")
+[node name="bodyguard2" parent="." unique_id=1431428803 instance=ExtResource("13_trtic")]
+position = Vector2(182, 524)
+collision_layer = 4
+collision_mask = 0
+
+[node name="bodyguard3" parent="." unique_id=1545585450 instance=ExtResource("11_dinhu")]
+position = Vector2(176, 574)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=811397546]
+
+[node name="fade_transition" parent="CanvasLayer" unique_id=2118107434 instance=ExtResource("4_kvuet")]
+visible = false
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1204979808]
+offset_left = 439.0
+offset_top = 29.0
+offset_right = 697.0
+offset_bottom = 71.0
+texture_over = ExtResource("5_trtic")
+texture_progress = ExtResource("6_ir15t")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1188649252]
+z_index = 1
+color = Color(0, 0, 0, 1)

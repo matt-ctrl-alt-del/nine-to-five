@@ -1,6 +1,28 @@
 [gd_scene format=3 uid="uid://cwr14golex3xu"]
 
 [ext_resource type="Script" uid="uid://ba5oweqalhas5" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://bmy3se53j0te6" path="res://sprites/menuthanks/Menu.png" id="2_v86rl"]
+[ext_resource type="Texture2D" uid="uid://dhxkmlb6ipjgg" path="res://sprites/buttons/play.png" id="3_13sgg"]
+[ext_resource type="Texture2D" uid="uid://bd1hrppwxqhb7" path="res://sprites/buttons/playpressed.png" id="4_i6lef"]
+[ext_resource type="Texture2D" uid="uid://dqmbxm213xmap" path="res://sprites/buttons/quit.png" id="5_70i5f"]
+[ext_resource type="Texture2D" uid="uid://cks6thsncuii0" path="res://sprites/buttons/quitpressed.png" id="6_mj5lg"]
+[ext_resource type="PackedScene" uid="uid://diht7apmk8qnx" path="res://scenes/fade_transition.tscn" id="7_ufwb2"]
+[ext_resource type="AudioStream" uid="uid://dqs4q4dkpw5c1" path="res://music/Project_1.mp3" id="8_13sgg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cdou"]
+atlas = ExtResource("2_v86rl")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mbl1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cdou")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="menu" type="Control" unique_id=2084467635]
 layout_mode = 3
@@ -10,3 +32,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqeox")
+
+[node name="Control" type="Control" parent="." unique_id=2013769760]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=1032258529]
+sprite_frames = SubResource("SpriteFrames_mbl1c")
+autoplay = "default"
+
+[node name="play" type="TextureButton" parent="Control" unique_id=432090318]
+layout_mode = 0
+offset_left = -79.0
+offset_top = -133.0
+offset_right = 93.0
+offset_bottom = -91.0
+texture_normal = ExtResource("3_13sgg")
+texture_pressed = ExtResource("4_i6lef")
+
+[node name="quit" type="TextureButton" parent="Control" unique_id=170011850]
+layout_mode = 0
+offset_left = -77.0
+offset_top = -63.0
+offset_right = 95.0
+offset_bottom = -21.0
+texture_normal = ExtResource("5_70i5f")
+texture_pressed = ExtResource("6_mj5lg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1913131982]
+
+[node name="fade_transition" parent="CanvasLayer" unique_id=2118107434 instance=ExtResource("7_ufwb2")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1548929063]
+stream = ExtResource("8_13sgg")
+autoplay = true
+
+[connection signal="pressed" from="Control/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/quit" to="." method="_on_quit_pressed"]

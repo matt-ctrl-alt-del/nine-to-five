@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d4iiqn5ws5i4r"]
+
+[ext_resource type="PackedScene" uid="uid://den7q63k2pxh4" path="res://scenes/boss.tscn" id="1_hcfsm"]
+[ext_resource type="Texture2D" uid="uid://cruoio84c47ye" path="res://sprites/enemies/guard1.png" id="2_0ctru"]
+
+[node name="bodyguard1" unique_id=691773406 instance=ExtResource("1_hcfsm")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=969219316]
+texture = ExtResource("2_0ctru")
+
+[node name="kill zone" parent="." index="2" unique_id=1205674080]
+collision_layer = 0
+collision_mask = 2
