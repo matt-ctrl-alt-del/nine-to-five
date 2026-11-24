@@ -19,7 +19,7 @@ desperately try to catch you.
 W - Move up,
 A - Move left,
 S - Move down,
-D - Move right,
+D - Move right.
 
 <h3> Tools: </h3>
 I used Godot and Gdscript, for the art I used Aseprite/Libresprite, and for the music I used my Korg NanoKey2 and Bandlab. 
