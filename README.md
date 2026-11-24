@@ -21,6 +21,10 @@ A - Move left,
 S - Move down,
 D - Move right.
 
+<h3> Play: </h3>
+It can be played at: 
+https://matt-not-found.itch.io/nine-to-five
+
 <h3> Tools: </h3>
 I used Godot and Gdscript, for the art I used Aseprite/Libresprite, and for the music I used my Korg NanoKey2 and Bandlab. 
 Everything made by me.  The audio was my first time actually trying to make music (and it sucks LOL, a first time for everything). 
